@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoViewController: UIViewController {
     
@@ -16,6 +17,21 @@ class ToDoViewController: UIViewController {
     @IBAction func addButtonAction(_ sender: Any) {
         addTaskAlert(title: "To-do", message: "Write task", style: .alert)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        
+        do {
+            tasks = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +40,22 @@ class ToDoViewController: UIViewController {
         
     }
     
+    func saveTask(withTitle title: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Tasks", in: context) else { return }
+        
+        let taskObject = Tasks(entity: entity, insertInto: context)
+        taskObject.title = title
+        
+        do {
+            try context.save()
+            tasks.append(taskObject)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
     
     func addTaskAlert(title: String, message: String, style: UIAlertController.Style){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
@@ -32,7 +64,7 @@ class ToDoViewController: UIViewController {
             let newTask = alertController.textFields?.first?.text
             
             if (newTask != nil){
-                self.tasks.insert(newTask!, at: 0)
+                self.saveTask(withTitle: newTask!)
                 self.tableViewOutlet.reloadData()
             } else {
             }
@@ -52,7 +84,8 @@ extension ToDoViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = tasks[indexPath.row ]
+        let task = tasks[indexPath.row]
+        cell.textLabel?.text = task.title
         return cell
     }
     
