@@ -143,9 +143,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="W39-8x-D87" kind="relationship" relationship="viewControllers" id="50L-Sl-lli"/>
                         <segue destination="wcc-Fe-h47" kind="relationship" relationship="viewControllers" id="fpn-44-d7M"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="1wv-yf-BmP"/>
-                        <segue destination="W39-8x-D87" kind="relationship" relationship="viewControllers" id="50L-Sl-lli"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cvm-fZ-UVf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -224,7 +224,13 @@
                             <constraint firstItem="vjC-aB-Fct" firstAttribute="trailing" secondItem="IDh-ED-87L" secondAttribute="trailing" id="yOh-Bm-ioE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ToDoList" id="pdp-gi-APA"/>
+                    <navigationItem key="navigationItem" title="ToDoList" id="pdp-gi-APA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="teX-ff-4Aw">
+                            <connections>
+                                <action selector="addButtonAction:" destination="U3e-C4-abf" id="nMm-BX-hBx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableViewOutlet" destination="vjC-aB-Fct" id="BXw-xp-5ug"/>
                     </connections>
