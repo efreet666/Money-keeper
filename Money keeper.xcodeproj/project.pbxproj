@@ -14,6 +14,10 @@
 		F53EC243287ACE600012E3F3 /* Money_keeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F53EC241287ACE600012E3F3 /* Money_keeper.xcdatamodeld */; };
 		F53EC245287ACE630012E3F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F53EC244287ACE630012E3F3 /* Assets.xcassets */; };
 		F53EC248287ACE630012E3F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F53EC246287ACE630012E3F3 /* LaunchScreen.storyboard */; };
+		F53EC250287AD2360012E3F3 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC24F287AD2360012E3F3 /* RegistrationViewController.swift */; };
+		F53EC252287ADAB50012E3F3 /* HelloViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC251287ADAB50012E3F3 /* HelloViewController.swift */; };
+		F53EC256287ADE2F0012E3F3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC255287ADE2F0012E3F3 /* Model.swift */; };
+		F53EC266287B3FF50012E3F3 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC265287B3FF50012E3F3 /* ToDoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		F53EC244287ACE630012E3F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F53EC247287ACE630012E3F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F53EC249287ACE630012E3F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F53EC24F287AD2360012E3F3 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		F53EC251287ADAB50012E3F3 /* HelloViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloViewController.swift; sourceTree = "<group>"; };
+		F53EC255287ADE2F0012E3F3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F53EC265287B3FF50012E3F3 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,52 @@
 		F53EC237287ACE600012E3F3 /* Money keeper */ = {
 			isa = PBXGroup;
 			children = (
+				F53EC264287B3F990012E3F3 /* B */,
+				F53EC253287ADE130012E3F3 /* A */,
+				F53EC263287AE8600012E3F3 /* Service */,
+				F53EC249287ACE630012E3F3 /* Info.plist */,
+			);
+			path = "Money keeper";
+			sourceTree = "<group>";
+		};
+		F53EC253287ADE130012E3F3 /* A */ = {
+			isa = PBXGroup;
+			children = (
+				F53EC24F287AD2360012E3F3 /* RegistrationViewController.swift */,
+				F53EC251287ADAB50012E3F3 /* HelloViewController.swift */,
+				F53EC254287ADE1F0012E3F3 /* Model */,
+			);
+			path = A;
+			sourceTree = "<group>";
+		};
+		F53EC254287ADE1F0012E3F3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F53EC255287ADE2F0012E3F3 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F53EC263287AE8600012E3F3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F53EC23E287ACE600012E3F3 /* Main.storyboard */,
 				F53EC238287ACE600012E3F3 /* AppDelegate.swift */,
 				F53EC23A287ACE600012E3F3 /* SceneDelegate.swift */,
 				F53EC23C287ACE600012E3F3 /* ViewController.swift */,
-				F53EC23E287ACE600012E3F3 /* Main.storyboard */,
 				F53EC244287ACE630012E3F3 /* Assets.xcassets */,
 				F53EC246287ACE630012E3F3 /* LaunchScreen.storyboard */,
-				F53EC249287ACE630012E3F3 /* Info.plist */,
 				F53EC241287ACE600012E3F3 /* Money_keeper.xcdatamodeld */,
 			);
-			path = "Money keeper";
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F53EC264287B3F990012E3F3 /* B */ = {
+			isa = PBXGroup;
+			children = (
+				F53EC265287B3FF50012E3F3 /* ToDoViewController.swift */,
+			);
+			path = B;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F53EC266287B3FF50012E3F3 /* ToDoViewController.swift in Sources */,
+				F53EC256287ADE2F0012E3F3 /* Model.swift in Sources */,
 				F53EC243287ACE600012E3F3 /* Money_keeper.xcdatamodeld in Sources */,
 				F53EC23D287ACE600012E3F3 /* ViewController.swift in Sources */,
 				F53EC239287ACE600012E3F3 /* AppDelegate.swift in Sources */,
+				F53EC252287ADAB50012E3F3 /* HelloViewController.swift in Sources */,
 				F53EC23B287ACE600012E3F3 /* SceneDelegate.swift in Sources */,
+				F53EC250287AD2360012E3F3 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
