@@ -11,9 +11,30 @@ import CoreData
 class ToDoViewController: UIViewController {
     
     var tasks: [Tasks] = []
+    
     @IBOutlet weak var tableViewOutlet: UITableView!
     
     
+    @IBAction func editButtonAction(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Tasks> = Tasks.fetchRequest()
+        
+        if let tasks = try? context.fetch(fetchRequest) {
+            for task in tasks {
+                context.delete(task)
+            }
+        }
+        
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        self.tasks.removeAll(keepingCapacity: false)
+        tableViewOutlet.reloadData()
+    }
     @IBAction func addButtonAction(_ sender: Any) {
         addTaskAlert(title: "To-do", message: "Write task", style: .alert)
     }
