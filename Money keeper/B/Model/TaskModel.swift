@@ -10,12 +10,12 @@ import RealmSwift
 
 class Task: Object {
     
-    dynamic var name = ""
-    dynamic var isCompleted = false
+    @objc dynamic var name = ""
+    @objc dynamic var isCompleted = false
 }
 
 class TaskList: Object {
     
-    dynamic var name = ""
+    @objc dynamic var name = ""
     let tasks = List<Task>()
 }

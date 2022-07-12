@@ -41,7 +41,13 @@
                             <constraint firstItem="A43-bG-6wV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zwE-ZZ-h5m"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Realm TodoList" id="FUL-UH-rTB"/>
+                    <navigationItem key="navigationItem" title="Realm TodoList" id="FUL-UH-rTB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gtd-e9-jqA">
+                            <connections>
+                                <action selector="AddTaskButtonAction:" destination="BYZ-38-t0r" id="9pC-Bf-3SS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="TaskTableViewOutlet" destination="A43-bG-6wV" id="krk-0k-Lem"/>
                     </connections>
