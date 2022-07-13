@@ -41,8 +41,13 @@ class SecondToDoListViewController: UIViewController {
             
             if (newTask != nil){
                 //add task
+                try! uiRealm.write({ () -> Void in
+                    newTask?.append(<#T##c: Character##Character#>)
+                            self.readTasksAndUpateUI()
+                        })
                 
                 try! uiRealm.write { () -> Void in
+                    
                     self.task.name = newTask!
                     self.userTasks.tasks.append(self.task)
                             uiRealm.add(userTasks)
@@ -70,7 +75,12 @@ class SecondToDoListViewController: UIViewController {
 
 extension SecondToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lists.count
+        if lists.isEmpty == true{
+            return 0
+        } else {
+            return lists.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
