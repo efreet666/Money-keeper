@@ -16,6 +16,7 @@ class SecondToDoListViewController: UIViewController {
     let task = Task()
     
     let uiRealm = try! Realm()
+    var lists : Results<TaskList>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,13 @@ class SecondToDoListViewController: UIViewController {
         self.TaskTableViewOutlet.dataSource = self
         
         self.userTasks.name = "MyTasks"
-       
+        
     }
     
     @IBAction func AddTaskButtonAction(_ sender: Any) {
         addTaskAlert(title: "Alert", message: "Write new task", style: .alert)
     }
+    
     
     func addTaskAlert(title: String, message: String, style: UIAlertController.Style){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
@@ -44,7 +46,7 @@ class SecondToDoListViewController: UIViewController {
                     self.task.name = newTask!
                     self.userTasks.tasks.append(self.task)
                             uiRealm.add(userTasks)
-                    self.TaskTableViewOutlet.reloadData()
+                    readAndUpdateIU()
                 }
             } else {
                 
@@ -58,20 +60,24 @@ class SecondToDoListViewController: UIViewController {
     }
     
     func readAndUpdateIU() {
-        let lists = uiRealm.objects(userTasks)
+        
+        lists = uiRealm.objects(TaskList.self)
+        self.TaskTableViewOutlet.setEditing(false, animated: true)
+        self.TaskTableViewOutlet.reloadData()
     }
 }
 
 
 extension SecondToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        userTasks.tasks.count
+        return lists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let myTask = userTasks.tasks[indexPath.row]
-        cell.textLabel?.text = myTask.name
+        let Mytask = lists[indexPath.row]
+        cell.textLabel?.text = "\(Mytask.tasks[indexPath.row].name)"
+        print(Mytask.tasks[indexPath.row].name)
         return cell
     }
     
