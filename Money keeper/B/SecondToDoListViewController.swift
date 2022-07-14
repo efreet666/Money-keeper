@@ -32,7 +32,7 @@ class SecondToDoListViewController: UIViewController {
         addTaskAlert(title: "Alert", message: "Write new task", style: .alert)
     }
     
-    
+    //MARK: - Alert
     func addTaskAlert(title: String, message: String, style: UIAlertController.Style){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         
@@ -43,7 +43,7 @@ class SecondToDoListViewController: UIViewController {
                 //add task
                 try! uiRealm.write({ () -> Void in
                     newTask?.append(<#T##c: Character##Character#>)
-                            self.readTasksAndUpateUI()
+                           
                         })
                 
                 try! uiRealm.write { () -> Void in
