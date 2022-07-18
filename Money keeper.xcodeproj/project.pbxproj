@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EDBCEC00FA29CAC89E7C0FE9 /* Pods_Money_keeper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E190D5393110D186068680B /* Pods_Money_keeper.framework */; };
+		F50F518928856E480039CB15 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50F518728856E480039CB15 /* TaskTableViewCell.swift */; };
+		F50F518A28856E480039CB15 /* TaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F50F518828856E480039CB15 /* TaskTableViewCell.xib */; };
 		F53EC239287ACE600012E3F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC238287ACE600012E3F3 /* AppDelegate.swift */; };
 		F53EC23B287ACE600012E3F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC23A287ACE600012E3F3 /* SceneDelegate.swift */; };
 		F53EC23D287ACE600012E3F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EC23C287ACE600012E3F3 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 		6E190D5393110D186068680B /* Pods_Money_keeper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money_keeper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B45E6AA72AECE3C5C0F17999 /* Pods-Money keeper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money keeper.release.xcconfig"; path = "Target Support Files/Pods-Money keeper/Pods-Money keeper.release.xcconfig"; sourceTree = "<group>"; };
 		F129DF2F268FC0637DD69251 /* Pods-Money keeper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money keeper.debug.xcconfig"; path = "Target Support Files/Pods-Money keeper/Pods-Money keeper.debug.xcconfig"; sourceTree = "<group>"; };
+		F50F518728856E480039CB15 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		F50F518828856E480039CB15 /* TaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskTableViewCell.xib; sourceTree = "<group>"; };
 		F53EC235287ACE600012E3F3 /* Money keeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Money keeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F53EC238287ACE600012E3F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F53EC23A287ACE600012E3F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,15 @@
 				6E190D5393110D186068680B /* Pods_Money_keeper.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F50F518B28856E4E0039CB15 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F50F518728856E480039CB15 /* TaskTableViewCell.swift */,
+				F50F518828856E480039CB15 /* TaskTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F53EC22C287ACE5F0012E3F3 = {
@@ -147,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				F59B32E7287CC52F005E718F /* SecondToDoListViewController.swift */,
+				F50F518B28856E4E0039CB15 /* Cell */,
 				F59B32E9287CC628005E718F /* Model */,
 			);
 			path = B;
@@ -220,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50F518A28856E480039CB15 /* TaskTableViewCell.xib in Resources */,
 				F53EC248287ACE630012E3F3 /* LaunchScreen.storyboard in Resources */,
 				F53EC245287ACE630012E3F3 /* Assets.xcassets in Resources */,
 				F53EC240287ACE600012E3F3 /* Main.storyboard in Resources */,
@@ -277,6 +292,7 @@
 			files = (
 				F53EC266287B3FF50012E3F3 /* ToDoViewController.swift in Sources */,
 				F53EC256287ADE2F0012E3F3 /* Model.swift in Sources */,
+				F50F518928856E480039CB15 /* TaskTableViewCell.swift in Sources */,
 				F59B32EB287CC698005E718F /* TaskModel.swift in Sources */,
 				F53EC243287ACE600012E3F3 /* Money_keeper.xcdatamodeld in Sources */,
 				F53EC23D287ACE600012E3F3 /* ViewController.swift in Sources */,

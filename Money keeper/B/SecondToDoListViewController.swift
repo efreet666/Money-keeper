@@ -22,7 +22,7 @@ class SecondToDoListViewController: UIViewController {
         self.TaskTableViewOutlet.delegate = self
         self.TaskTableViewOutlet.dataSource = self
         
-       
+        self.TaskTableViewOutlet.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
       
         
     }
@@ -30,7 +30,9 @@ class SecondToDoListViewController: UIViewController {
     @IBAction func AddTaskButtonAction(_ sender: Any) {
         addTaskAlert(title: "Alert", message: "Write new task", style: .alert)
     }
-    
+    func reloadData() {
+        
+    }
     //MARK: - Alert
     func addTaskAlert(title: String, message: String, style: UIAlertController.Style){
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
@@ -61,16 +63,15 @@ extension SecondToDoListViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       let tasks = realm.objects(ToDoTask.self)
       print(tasks)
-        
       return tasks.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TaskTableViewCell", for: indexPath) as! TaskTableViewCell
         let tasks = realm.objects(ToDoTask.self)
         let task = tasks[indexPath.row]
-        cell.textLabel?.text = task.name
+        cell.setupCell(task: task)
         return cell
     }
     
