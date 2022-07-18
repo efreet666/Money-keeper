@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 class SecondToDoListViewController: UIViewController {
- 
+    
     let myTasks = ToDoTask()
     
     let realm = try! Realm()
@@ -18,12 +18,12 @@ class SecondToDoListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.TaskTableViewOutlet.delegate = self
         self.TaskTableViewOutlet.dataSource = self
         
         self.TaskTableViewOutlet.register(UINib(nibName: "TaskTableViewCell", bundle: nil), forCellReuseIdentifier: "TaskTableViewCell")
-      
+        
         
     }
     
@@ -55,15 +55,15 @@ class SecondToDoListViewController: UIViewController {
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)
     }
-  
+    
 }
 
 
 extension SecondToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      let tasks = realm.objects(ToDoTask.self)
-      print(tasks)
-      return tasks.count
+        let tasks = realm.objects(ToDoTask.self)
+        print(tasks)
+        return tasks.count
         
     }
     
@@ -75,5 +75,19 @@ extension SecondToDoListViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let tasks = realm.objects(ToDoTask.self)
+            let task = tasks[indexPath.row]
+            try! realm.write {
+                realm.delete(task)
+            }
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
