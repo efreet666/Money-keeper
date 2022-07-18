@@ -8,14 +8,9 @@
 import Foundation
 import RealmSwift
 
-class Task: Object {
+class ToDoTask: Object {
     
     @objc dynamic var name = ""
     @objc dynamic var isCompleted = false
 }
 
-class TaskList: Object {
-    
-    @objc dynamic var name = ""
-    let tasks = List<Task>()
-}
